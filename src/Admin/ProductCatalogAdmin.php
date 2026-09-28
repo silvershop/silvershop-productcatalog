@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace SilverShop\ProductCatalog\Admin;
+namespace SilverShop\Admin;
 
-use SilverShop\Admin\ProductBulkLoader;
 use SilverShop\Model\Variation\AttributeType;
 use SilverShop\Page\Product;
 use SilverShop\Page\ProductCategory;
@@ -18,34 +17,36 @@ use SilverStripe\Forms\GridField\GridFieldDataColumns;
  * Both types are still pages - they keep their URLs, versioning and preview -
  * but they are edited here rather than through the pages section, where they
  * are hidden by {@link \SilverShop\ProductCatalog\Extension\HideCatalogFromSiteTreeExtension}.
+ *
+ * This class previously shipped with silvershop/core and keeps its original
+ * name so that existing configuration (e.g. other modules adding to
+ * `managed_models`) continues to apply. Tabs are keyed by class name for the
+ * same reason.
  */
-class ShopAdmin extends ModelAdmin
+class ProductCatalogAdmin extends ModelAdmin
 {
-    private static string $url_segment = 'shop';
+    private static string $url_segment = 'catalog';
 
-    private static string $menu_title = 'Shop';
+    private static string $menu_title = 'Catalog';
 
     private static int $menu_priority = 5;
 
-    private static string $menu_icon_class = 'font-icon-p-shop';
+    private static string $menu_icon_class = 'silvershop-icon-catalog';
 
     private static array $managed_models = [
-        'products' => [
-            'dataClass' => Product::class,
+        Product::class => [
             'title' => 'Products',
         ],
-        'categories' => [
-            'dataClass' => ProductCategory::class,
+        ProductCategory::class => [
             'title' => 'Categories',
         ],
-        'attributes' => [
-            'dataClass' => AttributeType::class,
+        AttributeType::class => [
             'title' => 'Attributes',
         ],
     ];
 
     private static array $model_importers = [
-        'products' => ProductBulkLoader::class,
+        Product::class => ProductBulkLoader::class,
     ];
 
     /**

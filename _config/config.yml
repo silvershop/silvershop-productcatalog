@@ -16,16 +16,12 @@ SilverStripe\Admin\LeftAndMain:
     - SilverShop\ProductCatalog\Extension\HideCatalogFromSiteTreeExtension
 
 # CMS edit links (e.g. from reports, link pickers and the "edit" badge) point
-# at the Shop admin rather than the pages section.
+# at the Catalog admin rather than the pages section.
 SilverShop\Page\Product:
-  cms_edit_owner: SilverShop\ProductCatalog\Admin\ShopAdmin
+  cms_edit_owner: SilverShop\Admin\ProductCatalogAdmin
 
 SilverShop\Page\ProductCategory:
-  cms_edit_owner: SilverShop\ProductCatalog\Admin\ShopAdmin
+  cms_edit_owner: SilverShop\Admin\ProductCatalogAdmin
   extensions:
     - SilverShop\ProductCatalog\Extension\ProductCategoryExtension
 
-# The Shop admin manages everything the core Catalog admin did, so remove the
-# duplicate menu item.
-SilverShop\Admin\ProductCatalogAdmin:
-  ignore_menuitem: true

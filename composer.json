@@ -1,6 +1,6 @@
 {
     "name": "silvershop/productcatalog",
-    "description": "Manage SilverShop products and categories from a dedicated 'Shop' admin instead of the CMS site tree.",
+    "description": "Provides the SilverShop Catalog admin for managing products and categories outside of the CMS site tree.",
     "license": "BSD-2-Clause",
     "type": "silverstripe-vendormodule",
     "homepage": "http://silvershop.github.io/",
@@ -15,7 +15,7 @@
     "require": {
         "php": "^8.3",
         "silverstripe/cms": "^6",
-        "silvershop/core": "^6"
+        "silvershop/core": "^6.2"
     },
 
     "require-dev": {
@@ -25,7 +25,8 @@
 
     "autoload": {
         "psr-4": {
-            "SilverShop\\ProductCatalog\\": "src/",
+            "SilverShop\\Admin\\": "src/Admin/",
+            "SilverShop\\ProductCatalog\\Extension\\": "src/Extension/",
             "SilverShop\\ProductCatalog\\Tests\\": "tests/php/"
         }
     },

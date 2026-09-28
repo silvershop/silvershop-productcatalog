@@ -1,0 +1,3 @@
+nn:
+  SilverShop\Admin\ProductCatalogAdmin:
+    MENUTITLE: Katalog
