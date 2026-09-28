@@ -1,0 +1,26 @@
+Page:
+  about:
+    Title: About Us
+    URLSegment: about-us
+
+SilverShop\Page\ProductCategory:
+  clothing:
+    Title: Clothing
+    URLSegment: clothing
+  shirts:
+    Title: Shirts
+    URLSegment: shirts
+    Parent: =>SilverShop\Page\ProductCategory.clothing
+
+SilverShop\Page\Product:
+  tshirt:
+    Title: Plain T-Shirt
+    URLSegment: plain-t-shirt
+    BasePrice: 25
+    Parent: =>SilverShop\Page\ProductCategory.shirts
+  hat:
+    Title: Sun Hat
+    URLSegment: sun-hat
+    BasePrice: 15
+    Parent: =>SilverShop\Page\ProductCategory.clothing
+    ProductCategories: =>SilverShop\Page\ProductCategory.shirts
