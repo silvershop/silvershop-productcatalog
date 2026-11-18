@@ -15,7 +15,7 @@
     "require": {
         "php": "^8.3",
         "silverstripe/cms": "^6",
-        "silvershop/core": "^6.2"
+        "silvershop/core": "^6.3"
     },
 
     "require-dev": {
